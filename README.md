@@ -237,3 +237,29 @@ head :created, :location => photo_path(@photo)
 # Partials
 
 # Helpers
+###Sinatra Way
+```ruby
+helpers do
+  def kneel
+    "Kneel noobs!"
+  end
+end
+```
+
+###Rails Way
+
+```ruby
+module ApplicationHelper
+  def kneel
+    "Kneel Scrubs"
+  end
+end
+```
+
+###Rails magic asset tag helpers for rendering
+*"auto_discovery_link_tag"
+*"javascript_include_tag"
+*"stylesheet_link_tag"
+*"image_tag"
+*"video_tag"
+*"audio_tag"
