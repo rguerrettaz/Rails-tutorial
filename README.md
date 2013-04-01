@@ -183,11 +183,43 @@ FILE: news.html.erb
 ##### Sinatra way
 
 ```ruby
+redirect '/'
+redirect_to '/'
+redirect back
 ```
 ##### Rails way
 
 ```ruby
+redirect_to photos_url
+redirect_to :back
+redirect_to photos_path, :status => 301
 ```
+NOTE: one option are :status => 302, :
+
+###Render vs Redirect - FIGHT!!!
+#####Render allows for another render to occur if you have one specified after, redirect forces a "return" so code afterwards is not executed
+
+```ruby
+def show
+  @book = Book.find(params[:id])
+  if @book.special?
+    render :action => "special_show"
+  end
+  render :action => "regular_show"
+end
+```
+
+```ruby
+def show
+  @book = Book.find(params[:id])
+  if @book.special?
+    render :action => "special_show" and return
+  end
+  render :action => "regular_show"
+end
+```
+
+
 
 <h2 id="head">Head</h2>
 
