@@ -1,10 +1,10 @@
 # Routing
 ## There are 3 ways to do roouting in rails
-* <a href="#render">Call render</a>
+* <a href="#rendering">Call render</a>
 * Call redirect_to
 * Call head
 
-<h2 id="render">Rendering</h2>
+<h2 id="rendering">Rendering</h2>
 
 ### Layout Rendering
 
