@@ -220,13 +220,17 @@ end
 ```
 
 
-
 <h2 id="head">Head</h2>
-
-
-
+#####An explicit way to specify render 
 
 ```ruby
+render :nothing => true
+```
+
+```ruby
+head :bad_request
+head :created, :location => photo_path(@photo)
+#Useful for redirecting
 ```
 
 
