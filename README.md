@@ -68,7 +68,7 @@ end
 
 There are 4 options you can pass while a rendering
 * :content_type
-* :layout
+* :layout (probably the most used)
 * :status
 * :location
 
@@ -96,8 +96,87 @@ render :json => @variable_to_be_converted
 NOTE: you do not need to use to_json, you also do not need to specify content type in rails
 
 
-### Rendering Layouts
+### Rendering Layouts in Rails
 
+###Layout
+```ruby
+render :layout => 'special_layout'
+render :layout => false
+```
+#####Force assign layout of all routes inside
+```ruby
+class ProductsController < ApplicationController
+  layout "inventory"
+  #...
+end
+```
+#####For entire application
+```ruby
+class ApplicationController < ActionController::Base
+  layout "main"
+  #...
+end
+```
+#####Set runtime layout by using a colon in layout and "name" for actual route
+```ruby
+class ProductsController < ApplicationController
+  layout :products_layout
+ 
+  def show
+    @product = Product.find(params[:id])
+  end
+ 
+  private
+    def products_layout
+      @current_user.special? ? "special" : "products"
+    end
+ 
+end
+```
+
+#####Set layout with a proc and gets inherited if another controller inherits from ProductsController
+
+```ruby
+class ProductsController < ApplicationController
+  layout Proc.new { |controller| controller.request.xhr? ? 'popup' : 'application' }
+end
+```
+#####Conditonal layout
+```ruby
+class ProductsController < ApplicationController
+  layout "product", :except => [:index, :rss]
+end
+```
+#####All layouts can be overridden, sent down from parent controller
+```ruby
+class ApplicationController < ActionController::Base
+  layout "main"
+end
+```
+```ruby
+class SpecialPostsController < ApplicationController
+  layout "special"
+end
+```
+
+#####Render multiple layouts 
+FILE: layout.html.erb
+```ruby
+<html>
+<head>
+  <style type="text/css"><%= yield :stylesheets %></style>
+</head>
+<body>
+</body>
+</html>
+```
+FILE: layout.html.erb
+```ruby
+<% content_for :stylesheets do %>
+  #top_menu {display: none}
+  #right_menu {float: right; background-color: yellow; color: black}
+<% end %>
+```
 
 <h2 id="redirect">Redirect</h2>
 
