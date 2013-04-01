@@ -4,7 +4,7 @@
 * Call redirect_to
 * Call head
 
-## [Rendering][render]
+## <div id="render">Rendering</div>
 
 ### Layout Rendering
 
