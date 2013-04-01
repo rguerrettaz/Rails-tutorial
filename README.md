@@ -170,7 +170,7 @@ FILE: layout.html.erb
 </body>
 </html>
 ```
-FILE: layout.html.erb
+FILE: news.html.erb
 ```ruby
 <% content_for :stylesheets do %>
   #top_menu {display: none}
