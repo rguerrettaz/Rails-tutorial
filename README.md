@@ -1,5 +1,5 @@
 # Routing
-## There are 3 ways to do roouting in rails
+## There are 3 ways to do routing in rails
 * <a href="#rendering">Call render</a>
 * Call redirect_to
 * Call head
