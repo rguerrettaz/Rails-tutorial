@@ -6,7 +6,7 @@
 
 <h2 id="rendering">Rendering</h2>
 
-##### Sinatra way
+### Sinatra way
 
 ```ruby
 get '/users/:id' do
@@ -16,7 +16,7 @@ get '/users/:id' do
 end
 ```
 
-##### Rails way
+### Rails way
 
 ```ruby
 class UsersController < ApplicationController
@@ -48,7 +48,30 @@ render :file => '/path/to/rails/app/views/books/edit'
 render :file => '/path/to/rails/app/views/books/edit.html.erb'
 ```
 
+######Implicit rendering of a route 
+NOTE: it automatically looks in the folder of the view for a matching file e.g. index route => index.html.erb
+This is how you would normal do a render explicitly
+```ruby
+def index
+  @user = User.find(id)
+  render :index
+end
+```
+But in rails we have implicit rendering because rails will imply the correct route from def name
+```ruby
+def index
+  @user = User.find(id)
+end
+```
+
 ### Rendering Options
+
+There are 4 options you can pass while a rendering
+* :content_type
+* :layout
+* :status
+* :location
+
 
 ##### Rendering JSON
 
@@ -70,7 +93,8 @@ render :json => @user
 end
 render :json => @variable_to_be_converted
 ```
-NOTE: you do not need to user to to_json, you also do not need to specify content type in rails
+NOTE: you do not need to use to_json, you also do not need to specify content type in rails
+
 
 ### Rendering Layouts
 
