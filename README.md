@@ -257,9 +257,18 @@ end
 ```
 
 ###Rails magic asset tag helpers for rendering
-*"auto_discovery_link_tag"
-*"javascript_include_tag"
-*"stylesheet_link_tag"
-*"image_tag"
-*"video_tag"
-*"audio_tag"
+* (auto_discovery_link_tag)
+* (javascript_include_tag)
+* (stylesheet_link_tag)
+* (image_tag)
+* (video_tag)
+* (audio_tag)
+
+#####Examples
+layout.html.erb
+```ruby
+#loops through all js files in public asset folder and appends them to head 
+<%= javascript_include_tag :all, :recursive => true %>
+#joins all js files below and appends as a single file
+<%= javascript_include_tag "main", "columns", :cache => "cache/main/display" %>
+```
