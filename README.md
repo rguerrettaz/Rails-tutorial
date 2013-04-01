@@ -30,7 +30,50 @@ class UsersController < ApplicationController
 end
 ```
 
+### Ways to render
+```ruby
+render :edit
+render :action => :edit
+render 'edit'
+render 'edit.html.erb'
+render :action => 'edit'
+render :action => 'edit.html.erb'
+render 'books/edit'
+render 'books/edit.html.erb'
+render :template => 'books/edit'
+render :template => 'books/edit.html.erb'
+render '/path/to/rails/app/views/books/edit'
+render '/path/to/rails/app/views/books/edit.html.erb'
+render :file => '/path/to/rails/app/views/books/edit'
+render :file => '/path/to/rails/app/views/books/edit.html.erb'
+```
+
+### Rendering Options
+
+##### Rendering JSON
+
+Sinatra Way
+```ruby
+get '/index' do
+  content_type :json
+  @user = User.find(id)
+  @user.to_json
+end
+```
+
+Rails Way
+
+```ruby
+def index
+@user = User.find(id)
+render :json => @user
+end
+render :json => @variable_to_be_converted
+```
+NOTE: you do not need to user to to_json, you also do not need to specify content type in rails
+
 ### Rendering Layouts
+
 
 <h2 id="redirect">Redirect</h2>
 
