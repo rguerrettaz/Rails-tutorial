@@ -268,7 +268,7 @@ helpers do
   end
 end
 ```
-
+/helpers/application_helper.rb
 ###Rails Way
 
 ```ruby
