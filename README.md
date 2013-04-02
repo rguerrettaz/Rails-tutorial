@@ -345,7 +345,7 @@ class TodosController < ApplicationController
  
 Example use of form_for:
 ```ruby
-<%= form_for @object, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
+<%= form_for @new_todo, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
   <%= f.text_field :title %>
   <%= f.text_area :body, :size => "60x12" %>
   <%= f.submit "Create" %>
