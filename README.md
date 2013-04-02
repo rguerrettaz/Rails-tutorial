@@ -260,6 +260,10 @@ _product.html.erb
 
 # Helpers
 
+* <a href="#link_to">link_to</a>
+* <a href="#form_for">form_for</a>
+* <a href="#image_tag">image_tag</a>
+
 ###Sinatra Way
 ```ruby
 helpers do
@@ -295,9 +299,7 @@ layout.html.erb
 #joins all js files below and appends as a single file
 <%= javascript_include_tag "main", "columns", :cache => "cache/main/display" %>
 ```
-* <a href="#link_to">link_to</a>
-* <a href="#form_for">form_for</a>
-* <a href="#image_tag">image_tag</a>
+
  
 <h2 id="link_to">Link_to</h2>
 It is an almost Rails convention that you should use Ruby code rather than HTML to create links as a matter of style and flexibility via routes.rb
