@@ -235,8 +235,31 @@ head :created, :location => photo_path(@photo)
 
 
 # Partials
+#####Rails Way
+Just like Sinatra, file names for partials will have leading-underscore.
+```ruby
+<%= render "menu" %>
+```
+will render a file named _menu.html.erb
+
+###Partial Layouts
+A partial can use its own layout file, just as a view can use a layout.
+```ruby
+<%= render :partial => "link_area", :layout => "graybar" %>
+```
+layouts for partials follow the same leading-underscore naming.
+Partials are very useful in rendering collections. When you pass a collection to a partial via the :collection option, the partial will be inserted once for each member in the collection:
+index.html.erb
+```ruby
+<%= render :partial => "product", :collection => @products %>
+```
+_product.html.erb
+```ruby
+<p>Product Name: <%= product.name %></p>
+```
 
 # Helpers
+
 ###Sinatra Way
 ```ruby
 helpers do
