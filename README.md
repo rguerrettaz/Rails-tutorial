@@ -394,22 +394,13 @@ How to display an image inside a link_to
 ### Helpers
 
 [Form helpers](http://guides.rubyonrails.org/form_helpers.html)
-
-[Forms](http://www.codelearn.org/ruby-on-rails-tutorial/3/Introducing-forms,-migrations-&-ajax-in-Rails/2/form_for-in-Rails
-
+[Forms](http://www.codelearn.org/ruby-on-rails-tutorial/3/Introducing-forms,-migrations-&-ajax-in-Rails/2/form_for-in-Rails)
 [form_for](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_for)
-
 [Helpers in Rails Stack Overflow](http://stackoverflow.com/questions/4786099/helpers-in-rails)
-
 [Nested Attributes](http://currentricity.wordpress.com/2011/09/04/the-definitive-guide-to-accepts_nested_attributes_for-a-model-in-rails-3/)
-)
-
 [image_tag](http://apidock.com/rails/v3.2.8/ActionView/Helpers/AssetTagHelper/image_tag)
-
 [link_to](http://cch4rails.blogspot.com/2009/09/rails-basics-linkto.html)
-
-[link_to](http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#M001565)
-
+[link_to deeeeeep & detailed and stuffy like a humid day in Florida](http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#M001565)
 [fields_for](http://apidock.com/rails/ActionView/Helpers/FormHelper/fields_for)
 
 
