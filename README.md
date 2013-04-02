@@ -295,3 +295,95 @@ layout.html.erb
 #joins all js files below and appends as a single file
 <%= javascript_include_tag "main", "columns", :cache => "cache/main/display" %>
 ```
+* <a href="#link_to">link_to</a>
+* <a href="#form_for">form_for</a>
+* <a href="#image_tag">image_tag</a>
+ 
+<h2 id="link_to">Link_to</h2>
+It is an almost Rails convention that you should use Ruby code rather than HTML to create links as a matter of style and flexibility via routes.rb
+Example:
+<strong>Sinatra way:<strong>
+```ruby
+<div class="links">
+  <ul>
+    <li><a href="/users/login">Log in</a></li>
+    <li><a href="/users/signup">Sign up</a></li>
+  </ul>
+</div>
+```
+ 
+<strong>Rails way:<strong>
+```ruby
+<div class="right-nav">
+    <%= link_to "Log in",  '#', :remote => true,
+                class: "nav-link", id: "login" %>
+    <%= link_to "Sign Up", '#', :remote => true,
+                class: "nav-link", id: "signup" %>
+  </div>
+```
+ 
+Other ways to user link_to
+* link_to_if
+* link_to_unless
+* link_to_unless_current
+ 
+ 
+<h2 id="form_for">Form_for</h2>
+ 
+The form_for functionality is helpful in creating single form to either add a new item or edit an existing item. The model object's content changes in the two cases (referring to @new_todo) but the form_for code remains the same.
+ 
+form_for is essentially associated with a model object. In this example we are going to use a TodoController and a @new_todo instance as seen below.
+```ruby
+class TodosController < ApplicationController
+  def index
+    @todo_items = Todo.all
+    @new_todo = Todo.new
+  end
+```
+ 
+Example use of form_for:
+```ruby
+<%= form_for @object, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :body, :size => "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>
+```
+ 
+For this to work we need to update our add method in the TodosController to the below:
+```ruby
+def add
+  todo = Todo.create(:todo_item => params[:todo][:todo_item])
+  redirect_to :action => 'index'
+end
+```
+ 
+### form_for to html example
+ 
+form_for code:
+```ruby
+<%= form_for @article, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :body, :size => "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>
+```
+ 
+resulting HTML
+```ruby
+<form accept-charset="UTF-8" action="/articles/create" method="post" class="nifty_form">
+  <input id="article_title" name="article[title]" size="30" type="text" />
+  <textarea id="article_body" name="article[body]" cols="60" rows="12"></textarea>
+  <input name="commit" type="submit" value="Create" />
+</form>
+```
+ 
+ 
+<h2 id="image_tag">Image_tag</h2>
+ 
+No time, only one example:
+ 
+How to display an image inside a link_to
+```ruby
+<%= link_to image_tag("about.gif", :border=>0), :action => 'about' %>
+```
